@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mohamed Tamer Nabil | CV</title>
- <link rel="Website Icon" type="png" href="icone web.svg">
+
+<link rel="Website Icon" type="png" href="icone web.svg">
 <link rel="stylesheet" href="style.css">
 
-<!-- Google Analytics (استبدل G-XXXXXXXXXX بالـ ID بتاعك) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -17,26 +21,42 @@ gtag('config', 'G-XXXXXXXXXX');
 </script>
 
 </head>
+
 <body class="dark">
 
 <button class="theme-toggle" id="themeToggle">🌙</button>
+<div class="lang-switch" id="langToggle">
+<span class="lang-option active">EN</span>
+<span class="lang-option">AR</span>
+<div class="lang-slider"></div>
+</div>
 
 <header class="hero">
-    <div class="hero-content">
-        
-        <div class="image-wrapper">
-            <img src="profile.jpeg" alt="Mohamed Tamer" class="profile-img" id="profileImage">
-        </div>
 
-        <h1>Mohamed Tamer Nabil</h1>
-        <a href="mohamed-tamer-nabil(CV)2026.pdf" download class="download-btn">Download CV</a>
-    </div>
+<div class="hero-content">
+
+<div class="image-wrapper">
+<img src="profile.jpeg" alt="Mohamed Tamer" class="profile-img" id="profileImage">
+</div>
+
+<h1>Mohamed Tamer Nabil</h1>
+
+<a href="mohamed-tamer-nabil(CV)2026.pdf"
+download
+class="download-btn"
+data-en="Download CV"
+data-ar="تحميل السيرة الذاتية">
+
+Download CV
+
+</a>
+
+</div>
 </header>
 
-<!-- Full Screen Image -->
 <div class="image-modal" id="imageModal">
-    <span class="close-btn" id="closeBtn">&times;</span>
-    <img src="profile.jpeg" class="modal-img">
+<span class="close-btn" id="closeBtn">&times;</span>
+<img src="profile.jpeg" class="modal-img">
 </div>
 
 <section class="container">
@@ -44,54 +64,124 @@ gtag('config', 'G-XXXXXXXXXX');
 <aside class="left">
 
 <div class="card">
-<h2>Contact Information</h2>
+
+<h2 data-en="Contact Information" data-ar="معلومات التواصل">Contact Information</h2>
+
 <div class="contact-item">
 <img src="icons/phone.svg" class="icon">
-<a href="http://wa.me/+966564741513" target="_blank">+966564741513</a>
- </div>
+<a href="http://wa.me/+966564741513" target="_blank">
++966564741513
+</a>
+</div>
 
 <div class="contact-item">
 <img src="icons/email.svg" class="icon">
-<a href="mailto:mohamed2002n30@email.com" target="_blank">mohamed2002n30@gmail.com</a>
-
+<a href="mailto:mohamed2002n30@email.com" target="_blank">
+mohamed2002n30@gmail.com
+</a>
 </div>
 
 <div class="contact-item">
 <img src="icons/location.svg" class="icon">
-<span>Al-Madinah Al-Munawwarah</span>
+<span
+data-en="Al-Madinah Al-Munawwarah"
+data-ar="المدينة المنورة">
+Al-Madinah Al-Munawwarah
+</span>
 </div>
 
 <div class="contact-item">
 <img src="icons/linkedin.svg" class="icon">
-<a href="linkedin.com/in/motamer307" target="_blank">linkedin.com/in/motamer307</a>
+<a href="linkedin.com/in/motamer307" target="_blank">
+linkedin.com/in/motamer307
+</a>
+</div>
+
 </div>
 
 <div class="card">
-<h2>Education</h2>
-<p>Bachelor of Business Information Systems (BIS)</p>
-<p><strong>Military Status:</strong> <span style="color:#0ee90e;" > Exempted</span></p>
+
+<h2 data-en="Education" data-ar="التعليم">Education</h2>
+
+<p
+data-en="Bachelor of Business Information Systems (BIS)"
+data-ar="بكالوريوس نظم معلومات الأعمال">
+
+Bachelor of Business Information Systems (BIS)
+
+</p>
+
+<p>
+
+<strong
+data-en="Military Status:"
+data-ar="الموقف من التجنيد:">
+
+Military Status:
+
+</strong>
+
+<span style="color:#0ee90e;"
+data-en="Exempted"
+data-ar="معفى">
+
+Exempted
+
+</span>
+
+</p>
+
 </div>
 
 <div class="card">
-<h2>Skills</h2>
+
+<h2 data-en="Skills" data-ar="المهارات">Skills</h2>
+
 <ul>
+
 <li>Adobe Photoshop</li>
 <li>Adobe Illustrator</li>
 <li>Adobe After Effects</li>
 <li>Adobe Premiere</li>
 <li>Microsoft Office</li>
+
 </ul>
+
 </div>
 
 <div class="card">
-<h2>Languages</h2>
-<p>Arabic: <span style="color:#0ee90e;" > Native</span></p>
-<p>English: Intermediate</p>
+
+<h2 data-en="Languages" data-ar="اللغات">Languages</h2>
+
+<p>
+
+Arabic:
+<span style="color:#0ee90e;"
+data-en="Native"
+data-ar="اللغة الأم">
+
+Native
+
+</span>
+
+</p>
+
+<p
+data-en="English: Intermediate"
+data-ar="الإنجليزية: متوسط">
+
+English: Intermediate
+
+</p>
+
 </div>
 
 <div class="card">
-<h2>Programming</h2>
+
+<h2 data-en="Programming" data-ar="البرمجة">Programming</h2>
+
 <ul>
+
 <li>HTML</li>
 <li>CSS</li>
 <li>Vue.js</li>
@@ -99,7 +189,9 @@ gtag('config', 'G-XXXXXXXXXX');
 <li>JavaScript</li>
 <li>PHP</li>
 <li>React.js</li>
+
 </ul>
+
 </div>
 
 </aside>
@@ -107,37 +199,190 @@ gtag('config', 'G-XXXXXXXXXX');
 <main class="right">
 
 <div class="card">
-<h2>Professional Experiences</h2>
+
+<h2 data-en="Professional Experiences" data-ar="الخبرات المهنية">
+
+Professional Experiences
+
+</h2>
+
 <ul>
-<li>Mostaql Platform</li>
-<li>Freelancer Platform</li>
-<li>Khamsat Platform</li>
-<li>ALMAJD Company (<span style="color:#d00c0d;" > Previously</span> )</li>
-<li>Manafaa Company in EG (<span style="color:#d00c0d;" > Previously</span> )</li>
-<li>Graphic Designer in Mohareb (<span style="color:#d00c0d;" > Previously</span> )</li>
-<li>Marketing in Hana Mall (<span style="color:#d00c0d;" > Previously</span> )</li>
-<li>Call Center in Saedny Company (<span style="color:#d00c0d;" > Previously</span> )</li>
-<li>Call Center in El-Tarshouby Pharmacies (<span style="color:#d00c0d;" > Previously</span> )</li>
-<li>Marketing in Elaf Al-Munawara for Umrah (<span style="color:#0ee90e;" > Now</span> )</li>
+
+<li
+data-en="Mostaql Platform"
+data-ar="منصة مستقل">
+Mostaql Platform
+</li>
+
+<li
+data-en="Freelancer Platform"
+data-ar="منصة فريلانسر">
+Freelancer Platform
+</li>
+
+<li
+data-en="Khamsat Platform"
+data-ar="منصة خمسات">
+Khamsat Platform
+</li>
+
+<li>
+
+<span
+data-en="ALMAJD Company |"
+data-ar="شركة المجد |">
+ALMAJD Company
+</span>
+
+<span style="color:#d00c0d;"
+data-en="Previously"
+data-ar="سابقاً">
+
+Previously
+
+</span>
+
+</li>
+
+<li>
+
+<span
+data-en="Manafaa Company in EG |"
+data-ar="شركة منافعة في مصر (شركة سعودية) | ">
+Manafea Company in EGY (Saudi Arabia company) | 
+</span>
+
+<span style="color:#d00c0d;"
+data-en="Previously"
+data-ar="سابقاً">
+
+Previously
+
+</span>
+
+</li>
+
+<li>
+
+<span
+data-en="Graphic Desginer in Mohareb in EGY (Saudi Arabia Company) | "
+data-ar="مصمم جرافيك في محارب بمصر (شركة سعودية) | ">
+Manafea Company in EGY (Saudi Arabia company) | 
+</span>
+
+<span style="color:#d00c0d;"
+data-en="Previously"
+data-ar="سابقاً">
+
+Previously
+
+</span>
+
+</li>
+
+<li>
+
+<span
+data-en="Markiting in Hana Mall in EGY | "
+data-ar="التسويق في هنا مول بمصر | ">
+Manafea Company in EGY (Saudi Arabia company) | 
+</span>
+
+<span style="color:#d00c0d;"
+data-en="Previously"
+data-ar="سابقاً">
+
+Previously
+
+</span>
+
+</li>
+<li>
+
+<span
+data-en="Call Center in Saedny Company in EGY | "
+data-ar="كول سنتر  في شركة ساعدني بمصر |  ">
+Manafea Company in EGY (Saudi Arabia company) | previously
+</span>
+
+<span style="color:#d00c0d;"
+data-en="Previously"
+data-ar="سابقاً">
+
+Previously
+
+</span>
+
+</li>
+
+<li>
+
+<span
+data-en="Call Center in El-Tarshouby Pharmacies in EGY | "
+data-ar=" كول سنتر في صيدليات الطرشوبي بمصر | ">
+Manafea Company in EGY (Saudi Arabia company) | previously
+</span>
+
+<span style="color:#d00c0d;"
+data-en="Previously"
+data-ar="سابقاً">
+
+Previously
+
+</span>
+
+</li>
+
+<li>
+
+<span
+data-en="Markiting in Elaf Al-Munawara for Umrah in KSA (Saudi Arabia company) | "
+data-ar="التسويق في إيلاف المنورة للعمرة في المملكة العربية السعودية (شركة سعودية) | ">
+Marketing in Elaf Al-Munawara for Umrah
+</span>
+
+<span style="color:#0ee90e;"
+data-en="Now"
+data-ar="حالياً">
+
+Now
+
+</span>
+
+</li>
+
 </ul>
+
 </div>
 
 <div class="card">
-<h2>Personal Qualifications</h2>
+
+<h2 data-en="Personal Qualifications" data-ar="الشهادات">
+
+Personal Qualifications
+
+</h2>
+
 <ul>
-<li>IT for Business Success – HP LIFE</li>
-<li>Effective Presentations – HP LIFE</li>
-<li>Introduction to Cybersecurity – CISCO</li>
-<li>IT & Communication Essentials – CISCO</li>
-<li>Python Programming Certificate – MCIT</li>
-<li>Introduction to Programming Using Python – MCIT</li>
-<li>SS-Discover and Upgrade your Skills – Tawar w Ghayar</li>
+
+<li data-en="IT for Business Success – HP LIFE" data-ar="تكنولوجيا المعلومات لنجاح الأعمال – HP LIFE"></li>
+<li data-en="Effective Presentations – HP LIFE" data-ar="العروض التقديمية الفعّالة – ​​HP LIFE"></li>
+<li data-en="Introduction to Cybersecurity – CISCO" data-ar="مقدمة في الأمن السيبراني – CISCO"></li>
+<li data-en="IT & Communication Essentials – CISCO" data-ar="أساسيات تكنولوجيا المعلومات والاتصالات – CISCO"></li>
+<li data-en="Python Programming Certificate – MCIT" data-ar="شهادة برمجة بايثون – MCIT"></li>
+<li data-en="Introduction to Programming Using Python – MCIT" data-ar="مقدمة في البرمجة باستخدام بايثون – MCIT"></li>
+<li data-en="SS-Discover and Upgrade your Skills – Tawar w Ghayar" data-ar="اكتشف مهاراتك وطوّرها – Tawar w Ghayar"></li>
+
+
 </ul>
+
 </div>
 
 </main>
+
 </section>
 
 <script src="script.js"></script>
+
 </body>
 </html>
