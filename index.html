@@ -1,184 +1,143 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Tamer CV</title>
+<title>Mohamed Tamer Nabil | CV</title>
+ <link rel="Website Icon" type="png" href="icone web.svg">
+<link rel="stylesheet" href="style.css">
 
-<style>
-
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:white;
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
-
-.header{
-text-align:center;
-}
-
-.profile-img{
-width:150px;
-height:150px;
-border-radius:50%;
-border:4px solid #38bdf8;
-object-fit:cover;
-}
-
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
-margin-top:20px;
-box-shadow:0 0 15px rgba(0,0,0,0.4);
-}
-
-.skill{
-margin:10px 0;
-}
-
-.bar{
-background:#334155;
-border-radius:20px;
-overflow:hidden;
-}
-
-.progress{
-height:10px;
-background:#38bdf8;
-width:0;
-transition:2s;
-}
-
-.project{
-background:#334155;
-padding:10px;
-border-radius:8px;
-margin-top:10px;
-}
-
-button{
-background:#38bdf8;
-border:none;
-padding:10px 15px;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-margin-top:10px;
-}
-
-.lang-btn{
-position:fixed;
-top:15px;
-right:15px;
-}
-
-</style>
-</head>
-
-<body>
-
-<button class="lang-btn" onclick="toggleLang()">EN / عربي</button>
-
-<div class="container">
-
-<div class="header">
-<img src="profile.jpeg" class="profile-img">
-<h1 id="name">محمد تامر</h1>
-<p id="title">مطور مواقع ويب</p>
-<a href="cv.pdf" download>
-<button id="download">تحميل السيرة الذاتية</button>
-</a>
-</div>
-
-<div class="card">
-<h2 id="aboutTitle">نبذة عني</h2>
-<p id="aboutText">
-مطور ويب شغوف ببناء مواقع حديثة وسريعة وتجربة مستخدم احترافية.
-</p>
-</div>
-
-<div class="card">
-<h2 id="skillsTitle">المهارات</h2>
-
-<div class="skill">HTML
-<div class="bar"><div class="progress" data-width="95%"></div></div>
-</div>
-
-<div class="skill">CSS
-<div class="bar"><div class="progress" data-width="90%"></div></div>
-</div>
-
-<div class="skill">JavaScript
-<div class="bar"><div class="progress" data-width="85%"></div></div>
-</div>
-
-</div>
-
-<div class="card">
-<h2 id="projectsTitle">المشاريع</h2>
-
-<div class="project">
-<b>Website Portfolio</b>
-<p>موقع شخصي لعرض الأعمال.</p>
-</div>
-
-<div class="project">
-<b>E-commerce Store</b>
-<p>متجر إلكتروني متكامل.</p>
-</div>
-
-</div>
-
-</div>
-
+<!-- Google Analytics (استبدل G-XXXXXXXXXX بالـ ID بتاعك) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
-
-// تحريك المهارات
-window.onload = ()=>{
-document.querySelectorAll(".progress").forEach(bar=>{
-bar.style.width = bar.dataset.width;
-});
-};
-
-// تغيير اللغة
-let arabic = true;
-
-function toggleLang(){
-
-arabic = !arabic;
-
-if(arabic){
-document.documentElement.lang="ar";
-name.innerText="محمد تامر";
-title.innerText="مطور مواقع ويب";
-aboutTitle.innerText="نبذة عني";
-aboutText.innerText="مطور ويب شغوف ببناء مواقع حديثة وسريعة وتجربة مستخدم احترافية.";
-skillsTitle.innerText="المهارات";
-projectsTitle.innerText="المشاريع";
-download.innerText="تحميل السيرة الذاتية";
-}
-else{
-document.documentElement.lang="en";
-name.innerText="Mohamed Tamer";
-title.innerText="Web Developer";
-aboutTitle.innerText="About Me";
-aboutText.innerText="Passionate web developer building modern fast websites and professional user experiences.";
-skillsTitle.innerText="Skills";
-projectsTitle.innerText="Projects";
-download.innerText="Download CV";
-}
-
-}
-
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
 </script>
 
+</head>
+<body class="dark">
+
+<button class="theme-toggle" id="themeToggle">🌙</button>
+
+<header class="hero">
+    <div class="hero-content">
+        
+        <div class="image-wrapper">
+            <img src="profile.jpeg" alt="Mohamed Tamer" class="profile-img" id="profileImage">
+        </div>
+
+        <h1>Mohamed Tamer Nabil</h1>
+        <a href="mohamed-tamer-nabil(CV)2026.pdf" download class="download-btn">Download CV</a>
+    </div>
+</header>
+
+<!-- Full Screen Image -->
+<div class="image-modal" id="imageModal">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img src="profile.jpeg" class="modal-img">
+</div>
+
+<section class="container">
+
+<aside class="left">
+
+<div class="card">
+<h2>Contact Information</h2>
+<div class="contact-item">
+<img src="icons/phone.svg" class="icon">
+<a href="http://wa.me/+966564741513" target="_blank">+966564741513</a>
+ </div>
+
+<div class="contact-item">
+<img src="icons/email.svg" class="icon">
+<a href="mailto:mohamed2002n30@email.com" target="_blank">mohamed2002n30@gmail.com</a>
+
+</div>
+
+<div class="contact-item">
+<img src="icons/location.svg" class="icon">
+<span>Al-Madinah Al-Munawwarah</span>
+</div>
+
+<div class="contact-item">
+<img src="icons/linkedin.svg" class="icon">
+<a href="linkedin.com/in/motamer307" target="_blank">linkedin.com/in/motamer307</a>
+</div>
+
+<div class="card">
+<h2>Education</h2>
+<p>Bachelor of Business Information Systems (BIS)</p>
+<p><strong>Military Status:</strong> <span style="color:#0ee90e;" > Exempted</span></p>
+</div>
+
+<div class="card">
+<h2>Skills</h2>
+<ul>
+<li>Adobe Photoshop</li>
+<li>Adobe Illustrator</li>
+<li>Adobe After Effects</li>
+<li>Adobe Premiere</li>
+<li>Microsoft Office</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Languages</h2>
+<p>Arabic: <span style="color:#0ee90e;" > Native</span></p>
+<p>English: Intermediate</p>
+</div>
+
+<div class="card">
+<h2>Programming</h2>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Vue.js</li>
+<li>Python</li>
+<li>JavaScript</li>
+<li>PHP</li>
+<li>React.js</li>
+</ul>
+</div>
+
+</aside>
+
+<main class="right">
+
+<div class="card">
+<h2>Professional Experiences</h2>
+<ul>
+<li>Mostaql Platform</li>
+<li>Freelancer Platform</li>
+<li>Khamsat Platform</li>
+<li>ALMAJD Company (<span style="color:#d00c0d;" > Previously</span> )</li>
+<li>Manafaa Company in EG (<span style="color:#d00c0d;" > Previously</span> )</li>
+<li>Graphic Designer in Mohareb (<span style="color:#d00c0d;" > Previously</span> )</li>
+<li>Marketing in Hana Mall (<span style="color:#d00c0d;" > Previously</span> )</li>
+<li>Call Center in Saedny Company (<span style="color:#d00c0d;" > Previously</span> )</li>
+<li>Call Center in El-Tarshouby Pharmacies (<span style="color:#d00c0d;" > Previously</span> )</li>
+<li>Marketing in Elaf Al-Munawara for Umrah (<span style="color:#0ee90e;" > Now</span> )</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Personal Qualifications</h2>
+<ul>
+<li>IT for Business Success – HP LIFE</li>
+<li>Effective Presentations – HP LIFE</li>
+<li>Introduction to Cybersecurity – CISCO</li>
+<li>IT & Communication Essentials – CISCO</li>
+<li>Python Programming Certificate – MCIT</li>
+<li>Introduction to Programming Using Python – MCIT</li>
+<li>SS-Discover and Upgrade your Skills – Tawar w Ghayar</li>
+</ul>
+</div>
+
+</main>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
