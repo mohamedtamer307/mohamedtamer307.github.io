@@ -1,7 +1,7 @@
 // =============================
 // SUPABASE CONNECTION
 // =============================
-
+alert("JavaScript is working");
 const supabaseUrl = "https://dpdhqeokdjispkkidzdl.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZGhxZW9rZGppc3Bra2lkemRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDI0OTYsImV4cCI6MjA4ODU3ODQ5Nn0.fLG_QfOz3OScdm_9ZW6qDVT7MnvgkJbxn4Ff0sUekA0";
 
@@ -192,3 +192,4 @@ async function trackVisitor() {
 }
 
 trackVisitor();
+
