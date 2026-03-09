@@ -1,54 +1,82 @@
-async function loadMessages(){
+/* Admin Page */
 
-const { data } = await supabaseClient
-.from("messages")
-.select("*")
-.order("created_at",{ascending:false});
-
-const table = document.querySelector("#messagesTable tbody");
-
-table.innerHTML="";
-
-data.forEach(msg=>{
-
-table.innerHTML+=`
-<tr>
-<td>${msg.name}</td>
-<td>${msg.email}</td>
-<td>${msg.message}</td>
-<td><button onclick="deleteMessage(${msg.id})">Delete</button></td>
-</tr>
-`;
-
-});
-
+body{
+background:#0f172a;
+font-family:Segoe UI, sans-serif;
+color:white;
+padding:40px;
 }
 
-async function deleteMessage(id){
+/* Title */
 
-await supabaseClient
-.from("messages")
-.delete()
-.eq("id",id);
-
-loadMessages();
-
+h1{
+text-align:center;
+margin-bottom:40px;
+color:#0ea5e9;
 }
 
-async function loadStats(){
+/* Stats */
 
-const { count:msgCount } = await supabaseClient
-.from("messages")
-.select("*",{count:"exact",head:true});
-
-const { count:visitCount } = await supabaseClient
-.from("visitors")
-.select("*",{count:"exact",head:true});
-
-document.getElementById("messageCount").innerText = msgCount;
-document.getElementById("visitorCount").innerText = visitCount;
-
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-bottom:40px;
+flex-wrap:wrap;
 }
 
-loadMessages();
-loadStats();
+.stat-box{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+width:180px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.stat-box h2{
+font-size:32px;
+color:#0ea5e9;
+margin-bottom:10px;
+}
+
+/* Table */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+}
+
+th{
+background:#0284c7;
+color:white;
+padding:12px;
+text-align:left;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #334155;
+}
+
+tr:hover{
+background:#0f172a;
+}
+
+/* Delete Button */
+
+button{
+background:#ef4444;
+border:none;
+padding:6px 12px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#dc2626;
+}
