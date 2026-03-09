@@ -1,0 +1,82 @@
+/* Admin Page */
+
+body{
+background:#0f172a;
+font-family:Segoe UI, sans-serif;
+color:white;
+padding:40px;
+}
+
+/* Title */
+
+h1{
+text-align:center;
+margin-bottom:40px;
+color:#0ea5e9;
+}
+
+/* Stats */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-bottom:40px;
+flex-wrap:wrap;
+}
+
+.stat-box{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+width:180px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.stat-box h2{
+font-size:32px;
+color:#0ea5e9;
+margin-bottom:10px;
+}
+
+/* Table */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+}
+
+th{
+background:#0284c7;
+color:white;
+padding:12px;
+text-align:left;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #334155;
+}
+
+tr:hover{
+background:#0f172a;
+}
+
+/* Delete Button */
+
+button{
+background:#ef4444;
+border:none;
+padding:6px 12px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#dc2626;
+}
