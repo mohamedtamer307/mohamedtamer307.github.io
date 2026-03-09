@@ -54,3 +54,20 @@ loadMessages();
 }
 
 loadMessages();
+
+async function loadVisitors(){
+
+const { count, error } = await supabaseClient
+.from("visitors")
+.select("*", { count: "exact", head: true });
+
+if(error){
+console.error("Error loading visitors:", error);
+return;
+}
+
+document.getElementById("visitorCount").innerText = count;
+
+}
+
+loadVisitors();
