@@ -130,59 +130,44 @@ setLanguage(savedLang);
 // CONTACT FORM
 // =============================
 
+document.addEventListener("DOMContentLoaded", () => {
+
 const form = document.getElementById("contactForm");
 
-if (form) {
+if (!form) return;
 
-  form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async (e) => {
 
-    e.preventDefault();
+e.preventDefault();
 
-    const name = document.getElementById("name")?.value.trim();
-    const email = document.getElementById("email")?.value.trim();
-    const message = document.getElementById("message")?.value.trim();
+const name = document.getElementById("name").value.trim();
+const email = document.getElementById("email").value.trim();
+const message = document.getElementById("message").value.trim();
 
-    // Anti Spam
-    const website = document.getElementById("website");
-    if (website && website.value !== "") {
-      return;
-    }
+const website = document.getElementById("website");
+if (website && website.value !== "") return;
 
-    if (!name || !email || !message) {
-      alert("Please fill all fields");
-      return;
-    }
-
-    try {
-
-      const { data, error } = await supabase
-        .from("messages")
-        .insert([
-          {
-            name: name,
-            email: email,
-            message: message
-          }
-        ]);
-
-      if (error) {
-        console.error(error);
-        alert("❌ Failed to send message");
-        return;
-      }
-
-      alert("✅ Message sent successfully");
-      form.reset();
-
-    } catch (err) {
-      console.error(err);
-      alert("Connection error");
-    }
-
-  });
-
+if (!name || !email || !message) {
+  alert("Please fill all fields");
+  return;
 }
 
+const { error } = await supabase
+.from("messages")
+.insert([{ name, email, message }]);
+
+if (error) {
+  console.error(error);
+  alert("❌ Failed to send message");
+  return;
+}
+
+alert("✅ Message sent successfully");
+form.reset();
+
+});
+
+});
 
 // =============================
 // VISITOR TRACKING
