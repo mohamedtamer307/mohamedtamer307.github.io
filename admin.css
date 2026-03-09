@@ -80,3 +80,10 @@ cursor:pointer;
 button:hover{
 background:#dc2626;
 }
+.card{
+background:#ffffff;
+color:#111;
+padding:25px;
+border-radius:12px;
+text-align:center;
+}
