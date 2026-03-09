@@ -240,3 +240,63 @@ transition:0.3s;
 .lang-switch.ar .lang-slider{
 transform:translateX(40px);
 }
+/* ===== Contact Form Safe Style ===== */
+
+.contact-box{
+max-width:600px;
+margin:40px auto;
+padding:25px;
+background:#1e293b;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contact-box h2{
+text-align:center;
+margin-bottom:20px;
+color:#0ea5e9;
+}
+
+.contact-box form{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.contact-box input,
+.contact-box textarea{
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+.contact-box textarea{
+min-height:120px;
+resize:none;
+}
+
+.contact-box button{
+background:#0ea5e9;
+color:white;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+transition:.3s;
+}
+
+.contact-box button:hover{
+background:#0284c7;
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+.contact-box{
+width:90%;
+padding:20px;
+}
+
+}
