@@ -1,113 +1,56 @@
-// ===============================
-// SUPABASE CONNECTION
-// ===============================
+const supabaseUrl = "https://dpdhqeokdjispkkidzdl.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZGhxZW9rZGppc3Bra2lkemRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDI0OTYsImV4cCI6MjA4ODU3ODQ5Nn0.fLG_QfOz3OScdm_9ZW6qDVT7MnvgkJbxn4Ff0sUekA0";
 
-const supabaseUrl = "PUT-YOUR-SUPABASE-URL";
-const supabaseKey = "PUT-YOUR-ANON-KEY";
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-const supabase = window.supabase.createClient(
-supabaseUrl,
-supabaseKey
-);
+async function loadMessages() {
 
-
-// ===============================
-// LOAD MESSAGES
-// ===============================
-
-async function loadMessages(){
-
-const { data, error } = await supabase
+const { data, error } = await supabaseClient
 .from("messages")
 .select("*")
-.order("created_at",{ascending:false});
+.order("id", { ascending: false });
 
-if(error){
-console.log(error);
+if (error) {
+console.error("Error loading messages:", error);
 return;
 }
 
-const table = document.querySelector("#messagesTable tbody");
+const tableBody = document.querySelector("#messagesTable tbody");
+tableBody.innerHTML = "";
 
-table.innerHTML="";
+document.getElementById("messageCount").innerText = data.length;
 
-data.forEach(msg=>{
+data.forEach(msg => {
 
-table.innerHTML+=`
-<tr>
+const row = document.createElement("tr");
+
+row.innerHTML = `
 <td>${msg.name}</td>
 <td>${msg.email}</td>
 <td>${msg.message}</td>
-<td>${new Date(msg.created_at).toLocaleString()}</td>
-<td>
-<button class="deleteBtn" onclick="deleteMessage(${msg.id})">
-Delete
-</button>
-</td>
-</tr>
+<td><button onclick="deleteMessage(${msg.id})">Delete</button></td>
 `;
+
+tableBody.appendChild(row);
 
 });
 
 }
 
+async function deleteMessage(id) {
 
-// ===============================
-// DELETE MESSAGE
-// ===============================
-
-async function deleteMessage(id){
-
-const confirmDelete = confirm("Delete this message?");
-
-if(!confirmDelete) return;
-
-await supabase
+const { error } = await supabaseClient
 .from("messages")
 .delete()
-.eq("id",id);
+.eq("id", id);
 
+if (error) {
+alert("Delete failed");
+console.error(error);
+} else {
 loadMessages();
-loadStats();
+}
 
 }
 
-
-// ===============================
-// LOAD STATISTICS
-// ===============================
-
-async function loadStats(){
-
-const { count:msgCount } = await supabase
-.from("messages")
-.select("*",{count:"exact",head:true});
-
-const { count:visitCount } = await supabase
-.from("visitors")
-.select("*",{count:"exact",head:true});
-
-document.getElementById("messageCount").innerText = msgCount;
-document.getElementById("visitorCount").innerText = visitCount;
-
-}
-
-
-// ===============================
-// AUTO REFRESH
-// ===============================
-
-setInterval(()=>{
-
 loadMessages();
-loadStats();
-
-},5000);
-
-
-// ===============================
-// FIRST LOAD
-// ===============================
-
-loadMessages();
-loadStats();
