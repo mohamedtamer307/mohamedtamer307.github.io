@@ -271,19 +271,17 @@ Personal Qualifications
 Send Me a Message
 </h2>
 
-<form id="contactForm">
+<form id="contactForm" onsubmit="return false;">
 
-<input type="text" id="name" name="name" placeholder="Your Name" required>
+<input id="name" type="text" name="name" placeholder="Your Name" required>
 
-<input type="email" id="email" name="email" placeholder="Your Email" required>
+<input id="email" type="email" name="email" placeholder="Your Email" required>
 
 <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
-<input type="text" id="website" style="display:none">
+<input id="website" type="text" style="display:none">
 
-<button type="submit">
-Send Message
-</button>
+<button type="button" id="sendBtn">Send Message</button>
 
 </form>
 
@@ -291,7 +289,7 @@ Send Message
 
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 
 </body>
