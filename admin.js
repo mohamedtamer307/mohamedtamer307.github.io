@@ -1,82 +1,113 @@
-/* Admin Page */
+// ===============================
+// SUPABASE CONNECTION
+// ===============================
 
-body{
-background:#0f172a;
-font-family:Segoe UI, sans-serif;
-color:white;
-padding:40px;
+const supabaseUrl = "PUT-YOUR-SUPABASE-URL";
+const supabaseKey = "PUT-YOUR-ANON-KEY";
+
+const supabase = window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+
+// ===============================
+// LOAD MESSAGES
+// ===============================
+
+async function loadMessages(){
+
+const { data, error } = await supabase
+.from("messages")
+.select("*")
+.order("created_at",{ascending:false});
+
+if(error){
+console.log(error);
+return;
 }
 
-/* Title */
+const table = document.querySelector("#messagesTable tbody");
 
-h1{
-text-align:center;
-margin-bottom:40px;
-color:#0ea5e9;
+table.innerHTML="";
+
+data.forEach(msg=>{
+
+table.innerHTML+=`
+<tr>
+<td>${msg.name}</td>
+<td>${msg.email}</td>
+<td>${msg.message}</td>
+<td>${new Date(msg.created_at).toLocaleString()}</td>
+<td>
+<button class="deleteBtn" onclick="deleteMessage(${msg.id})">
+Delete
+</button>
+</td>
+</tr>
+`;
+
+});
+
 }
 
-/* Stats */
 
-.stats{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-bottom:40px;
-flex-wrap:wrap;
+// ===============================
+// DELETE MESSAGE
+// ===============================
+
+async function deleteMessage(id){
+
+const confirmDelete = confirm("Delete this message?");
+
+if(!confirmDelete) return;
+
+await supabase
+.from("messages")
+.delete()
+.eq("id",id);
+
+loadMessages();
+loadStats();
+
 }
 
-.stat-box{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-width:180px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+
+// ===============================
+// LOAD STATISTICS
+// ===============================
+
+async function loadStats(){
+
+const { count:msgCount } = await supabase
+.from("messages")
+.select("*",{count:"exact",head:true});
+
+const { count:visitCount } = await supabase
+.from("visitors")
+.select("*",{count:"exact",head:true});
+
+document.getElementById("messageCount").innerText = msgCount;
+document.getElementById("visitorCount").innerText = visitCount;
+
 }
 
-.stat-box h2{
-font-size:32px;
-color:#0ea5e9;
-margin-bottom:10px;
-}
 
-/* Table */
+// ===============================
+// AUTO REFRESH
+// ===============================
 
-table{
-width:100%;
-border-collapse:collapse;
-background:#1e293b;
-border-radius:10px;
-overflow:hidden;
-}
+setInterval(()=>{
 
-th{
-background:#0284c7;
-color:white;
-padding:12px;
-text-align:left;
-}
+loadMessages();
+loadStats();
 
-td{
-padding:12px;
-border-bottom:1px solid #334155;
-}
+},5000);
 
-tr:hover{
-background:#0f172a;
-}
 
-/* Delete Button */
+// ===============================
+// FIRST LOAD
+// ===============================
 
-button{
-background:#ef4444;
-border:none;
-padding:6px 12px;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-button:hover{
-background:#dc2626;
-}
+loadMessages();
+loadStats();
