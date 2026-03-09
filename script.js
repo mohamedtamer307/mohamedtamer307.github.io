@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // =============================
 
 const supabaseUrl = "https://dpdhqeokdjispkkidzdl.supabase.co";
-const supabaseKey = "YOUR_ANON_KEY";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZGhxZW9rZGppc3Bra2lkemRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDI0OTYsImV4cCI6MjA4ODU3ODQ5Nn0.fLG_QfOz3OScdm_9ZW6qDVT7MnvgkJbxn4Ff0sUekA0";
 
 const supabase = window.supabase.createClient(
   supabaseUrl,
