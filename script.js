@@ -1,9 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+
 // =============================
 // SUPABASE CONNECTION
 // =============================
-alert("JavaScript is working");
+
 const supabaseUrl = "https://dpdhqeokdjispkkidzdl.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZGhxZW9rZGppc3Bra2lkemRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDI0OTYsImV4cCI6MjA4ODU3ODQ5Nn0.fLG_QfOz3OScdm_9ZW6qDVT7MnvgkJbxn4Ff0sUekA0";
+const supabaseKey = "YOUR_ANON_KEY";
 
 const supabase = window.supabase.createClient(
   supabaseUrl,
@@ -73,7 +75,7 @@ if (toggleBtn) {
 
 
 // =============================
-// Language Switch (EN / AR)
+// Language Switch
 // =============================
 
 const langBtn = document.getElementById("langToggle");
@@ -130,11 +132,9 @@ setLanguage(savedLang);
 // CONTACT FORM
 // =============================
 
-document.addEventListener("DOMContentLoaded", () => {
-
 const form = document.getElementById("contactForm");
 
-if (!form) return;
+if (form) {
 
 form.addEventListener("submit", async (e) => {
 
@@ -167,7 +167,8 @@ form.reset();
 
 });
 
-});
+}
+
 
 // =============================
 // VISITOR TRACKING
@@ -193,3 +194,4 @@ async function trackVisitor() {
 
 trackVisitor();
 
+});
