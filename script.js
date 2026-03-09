@@ -94,3 +94,45 @@ setLanguage("en");
 
 const savedLang = localStorage.getItem("lang") || "en";
 setLanguage(savedLang);
+const form = document.getElementById("contactForm");
+
+if(form){
+
+form.addEventListener("submit", async (e)=>{
+
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
+const website = document.getElementById("website").value;
+
+if(website !== ""){
+return;
+}
+
+const { error } = await supabaseClient
+.from("messages")
+.insert([{ name, email, message }]);
+
+if(error){
+alert("Error sending message");
+}else{
+alert("Message sent successfully");
+form.reset();
+}
+
+});
+
+}
+async function trackVisitor(){
+
+await supabaseClient
+.from("visitors")
+.insert([{
+page: window.location.pathname
+}]);
+
+}
+
+trackVisitor();
