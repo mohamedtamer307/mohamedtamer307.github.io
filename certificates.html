@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="icone web.svg">
+<title>Certificates | Mohamed Tamer</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ===== Header Center Fix ===== */
+
+.hero-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* ===== Certificates Grid ===== */
+
+.certificates-container{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* Card */
+
+.certificate-card{
+    background: var(--card);
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.certificate-card:hover{
+    transform:scale(1.05);
+}
+
+.certificate-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.certificate-card h3{
+    padding:10px;
+    font-size:14px;
+    text-align:center;
+}
+
+/* ===== Modal ===== */
+
+.cert-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.cert-modal img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+.close-cert{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body class="dark">
+
+<header class="hero">
+
+<div class="hero-content">
+
+<div class="image-wrapper">
+<img src="profile.jpeg" alt="Mohamed Tamer" class="profile-img" id="profileImage">
+</div>
+
+<h1 style="color:white;"
+data-en="My Certificates"
+data-ar="شهاداتي">
+My Certificates
+</h1>
+
+<!-- ✅ زر الصفحة الرئيسية -->
+<button class="download-btn"
+onclick="window.location.href='index.html'"
+data-en="Home Page"
+data-ar="الصفحة الرئيسية">
+ Home Page
+</button>
+
+</div>
+
+</header>
+
+<!-- ===== Certificates ===== -->
+
+<section class="certificates-container">
+
+    <div class="certificate-card" onclick="openCert(this)">
+    <img src="شهادة التخرج.jpg">
+    <h3 
+    data-en="Bachelor of Business Information Systems" 
+    data-ar="   بكالريوس نظم ومعلومات الأعمال">
+    Bachelor of Business Information Systems
+    </h3>
+</div>
+
+<div class="certificate-card" onclick="openCert(this)">
+    <img src="HP LIFE 2.png">
+    <h3 
+    data-en="HP LIFE - IT for Business" 
+    data-ar=" تكنولوجيا المعلومات للأعمال – HP LIFE">
+    HP LIFE - IT for Business
+    </h3>
+</div>
+
+<div class="certificate-card" onclick="openCert(this)">
+    <img src="HP LIFE.png">
+    <h3 
+    data-en="Effective Presentations – HP LIFE" 
+    data-ar="اﻟﻤﺤﺎﺿﺮات اﻟﻔﻌﺎﻟﻪ – HP LIFE ">
+    Effective Presentations – HP LIFE
+    </h3>
+</div>
+
+<div class="certificate-card" onclick="openCert(this)">
+    <img src="CISCO 1.png">
+    <h3 
+    data-en="Python Certificate" 
+    data-ar="مقدمة في الأمن السيبراني – CISCO">
+    Python Certificate
+    </h3>
+    
+</div>
+<div class="certificate-card" onclick="openCert(this)">
+    <img src="شهادة طور وغير.jpg">
+    <h3 
+    data-en=" SS- your Upgrade and Discover " 
+    data-ar=" اكتشف مهاراتك وطوّرها – Tawar w Ghayar ">
+     SS- your Upgrade and Discover
+    </h3>
+</div>
+ 
+<div class="certificate-card" onclick="openCert(this)">
+    <img src="رخصه القيادة.jpg">
+    <h3 
+    data-en="Saudi driving license" 
+    data-ar="رخصة قيادة خاصة سعودية">
+    Saudi driving license
+    </h3>
+</div>
+
+</section>
+
+<!-- ===== Modal ===== -->
+
+<div class="cert-modal" id="certModal">
+    <span class="close-cert" onclick="closeCert()">&times;</span>
+    <img id="certImage">
+</div>
+
+<script>
+
+// ===== Modal =====
+function openCert(card){
+    const img = card.querySelector("img").src;
+    document.getElementById("certImage").src = img;
+    document.getElementById("certModal").style.display = "flex";
+}
+
+function closeCert(){
+    document.getElementById("certModal").style.display = "none";
+}
+
+// ===== Language Toggle =====
+const elements = document.querySelectorAll("[data-en]");
+const savedLang = localStorage.getItem("lang");
+
+if(savedLang === "ar"){
+    applyLang(true);
+}
+
+function applyLang(isArabic){
+    elements.forEach(el => {
+        el.textContent = isArabic 
+        ? el.getAttribute("data-ar") 
+        : el.getAttribute("data-en");
+    });
+    document.body.dir = isArabic ? "rtl" : "ltr";
+}
+
+</script>
+
+</body>
+</html>
