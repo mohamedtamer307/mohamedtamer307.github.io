@@ -300,3 +300,22 @@ padding:20px;
 }
 
 }
+
+/* ===== Education Spacing ===== */
+
+.education p {
+    margin-bottom: 14px;
+    line-height: 1.9;
+}
+
+.education p:last-child {
+    margin-bottom: 0;
+}
+/* Footer */
+.footer{
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #aaa;
+    margin-top: auto;
+}
