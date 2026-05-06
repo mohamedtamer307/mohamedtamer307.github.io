@@ -6,20 +6,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Open Graph (WhatsApp / Facebook) -->
+<meta property="og:title" content="Mohamed Tamer Nabil | CV">
+<meta property="og:description" content="Professional CV & Portfolio showcasing my skills and experience.">
+<meta property="og:image" content="https://mohamedtamer307.github.io/profile.jpeg">
+<meta property="og:url" content="https://mohamedtamer307.github.io/">
+<meta property="og:type" content="website">
+
 <title>Mohamed Tamer Nabil | CV</title>
 
 <link rel="icon" type="image/png" href="icone web.svg">
 <link rel="stylesheet" href="style.css">
 
 <!-- Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RHHG9HWJC"></script>
 
 <script>
 window.dataLayer = window.dataLayer || [];
+
 function gtag(){dataLayer.push(arguments);}
+
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
+gtag('config', 'G-1RHHG9HWJC');
 </script>
 
 </head>
@@ -43,15 +51,25 @@ gtag('config', 'G-XXXXXXXXXX');
 </div>
 
 <h1>Mohamed Tamer Nabil</h1>
-
-<a href="mohamed-tamer-nabil(CV)2026.pdf"
-download
-class="download-btn"
+<button class="download-btn"
+onclick="window.location.href='certificates.html'"
+data-en="View Certificates"
+data-ar="عرض الشهادات">
+عرض الشهادات
+</button>
+<button class="download-btn" onclick="toggleCVOptions()"
 data-en="Download CV"
 data-ar="تحميل السيرة الذاتية">
-Download CV </a>
+Download CV
+</button>
+
+<div id="cvOptions" style="display:none; margin-top:10px;">
+  <a href="mohamed tamer (CV) 2026 AR .pdf" download class="download-btn">📄 عربي</a>
+  <a href="mohamed tamer (CV) 2026 EN .pdf" download class="download-btn">📄 English</a>
+</div>
 
 </div>
+
 </header>
 
 <div class="image-modal" id="imageModal">
@@ -84,7 +102,7 @@ mohamed2002n30@gmail.com
 <div class="contact-item">
 <img src="icons/location.svg" class="icon">
 <span data-en="Riyadh" data-ar=" الرياض">
-Al-Madinah Al-Munawwarah
+الرياض
 </span>
 </div>
 
@@ -97,9 +115,9 @@ linkedin.com/in/motamer307
 
 </div>
 
-<div class="card">
+<div class="card education">
 
-<h2 data-en="Education" data-ar="التعليم">Education</h2>
+<h2 data-en="Education" data-ar="اﻟﺘﻌﻠﻴﻢ واﻟﻤﻌﻠﻮﻣﺎت اﻟﺸﺨﺼﻴﺔ">Education</h2>
 
 <p
 data-en="Bachelor of Business Information Systems (BIS)"
@@ -108,16 +126,20 @@ Bachelor of Business Information Systems (BIS)
 </p>
 
 <p>
-
 <strong data-en="Military Status:" data-ar="الموقف من التجنيد:">
 Military Status:
 </strong>
-
 <span style="color:#0ee90e;"
 data-en="Exempted"
 data-ar="معفى">
-Exempted </span>
+Exempted
+</span>
+</p>
 
+<p
+data-en="Holds a Saudi driving license"
+data-ar="حاصل علي رخصة قيادة سعودية">
+Holds a Saudi driving license
 </p>
 
 </div>
@@ -155,7 +177,7 @@ English: Intermediate
 
 <div class="card">
 
-<h2 data-en="Programming" data-ar="البرمجة">Programming</h2>
+<h2 data-en="Programming languages" data-ar="لغات البرمجة">Programming</h2>
 
 <ul>
 <li>HTML</li>
@@ -291,6 +313,29 @@ Send Me a Message
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
+
+ <!-- ✅ Footer -->
+<footer class="footer">
+  <p 
+   data-en="All rights reserved © 2026 Mohamed Tamer Nabil"
+  data-ar="جميع الحقوق محفوظة © 2026 محمد تامر نبيل">
+  © <span id="year"></span> All rights reserved © 2026 Mohamed Tamer Nabil
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+<!-- سنة تلقائية -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const year = document.getElementById("year");
+    if(year){
+        year.textContent = new Date().getFullYear();
+    }
+});
+</script>
+
 
 </body>
 </html>
