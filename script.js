@@ -195,3 +195,9 @@ async function trackVisitor() {
 trackVisitor();
 
 });
+
+function toggleCVOptions() {
+  const box = document.getElementById("cvOptions");
+  box.style.display = (box.style.display === "none") ? "block" : "none";
+}
+
