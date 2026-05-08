@@ -1,89 +1,199 @@
-/* Admin Page */
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* ========================= */
+/* BODY */
+/* ========================= */
 
 body{
 background:#0f172a;
-font-family:Segoe UI, sans-serif;
+font-family:'Segoe UI',sans-serif;
 color:white;
-padding:40px;
+padding:30px;
+min-height:100vh;
 }
 
-/* Title */
+/* ========================= */
+/* TITLES */
+/* ========================= */
 
 h1{
 text-align:center;
 margin-bottom:40px;
 color:#0ea5e9;
+font-size:42px;
+font-weight:700;
 }
 
-/* Stats */
+h2{
+margin:50px 0 20px;
+font-size:28px;
+}
+
+/* ========================= */
+/* STATS */
+/* ========================= */
 
 .stats{
 display:flex;
 justify-content:center;
 gap:25px;
-margin-bottom:40px;
 flex-wrap:wrap;
+margin-bottom:50px;
 }
 
-.stat-box{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-width:180px;
+
+.card{
+background:#ffffff;
+color:#111827;
+padding:30px;
+border-radius:18px;
+width:240px;
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+transition:.3s;
 }
 
-.stat-box h2{
-font-size:32px;
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h2{
+font-size:45px;
 color:#0ea5e9;
 margin-bottom:10px;
 }
 
-/* Table */
+.card p{
+font-size:16px;
+color:#374151;
+font-weight:600;
+}
+
+
+
+/* ========================= */
+/* TABLE CONTAINER */
+/* ========================= */
+
+.table-container{
+width:100%;
+overflow-x:auto;
+border-radius:15px;
+margin-bottom:40px;
+}
+
+/* ========================= */
+/* TABLE */
+/* ========================= */
 
 table{
 width:100%;
+min-width:1300px;
 border-collapse:collapse;
 background:#1e293b;
-border-radius:10px;
 overflow:hidden;
+border-radius:15px;
+}
+
+thead{
+background:#0284c7;
 }
 
 th{
-background:#0284c7;
-color:white;
-padding:12px;
+padding:16px;
 text-align:left;
+font-size:14px;
+white-space:nowrap;
 }
 
 td{
-padding:12px;
-border-bottom:1px solid #334155;
+padding:14px;
+font-size:13px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+vertical-align:top;
+word-break:break-word;
 }
 
-tr:hover{
-background:#0f172a;
+tbody tr{
+transition:.2s;
 }
 
-/* Delete Button */
+tbody tr:hover{
+background:#162033;
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
 
 button{
 background:#ef4444;
 border:none;
-padding:6px 12px;
+padding:8px 14px;
+border-radius:8px;
 color:white;
-border-radius:6px;
 cursor:pointer;
+font-size:13px;
+transition:.3s;
 }
 
 button:hover{
 background:#dc2626;
 }
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+
+::-webkit-scrollbar{
+height:10px;
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#0ea5e9;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+background:#1e293b;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+
+body{
+padding:15px;
+}
+
+h1{
+font-size:30px;
+}
+
+h2{
+font-size:22px;
+}
+
+.stats{
+flex-direction:column;
+align-items:center;
+}
+
 .card{
-background:#ffffff;
-color:#111;
-padding:25px;
-border-radius:12px;
-text-align:center;
+width:100%;
+max-width:350px;
+}
+
 }
