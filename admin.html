@@ -1,19 +1,29 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Admin Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="supabase.js"></script>
 <link rel="stylesheet" href="admin.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
 </head>
 
 <body>
 
 <h1>Admin Dashboard</h1>
+
+<!-- ========================= -->
+<!-- STATS -->
+<!-- ========================= -->
 
 <div class="stats">
 
@@ -28,6 +38,10 @@
 </div>
 
 </div>
+
+<!-- ========================= -->
+<!-- MESSAGES -->
+<!-- ========================= -->
 
 <h2>Messages</h2>
 
@@ -46,7 +60,59 @@
 
 </table>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<!-- ========================= -->
+<!-- VISITORS -->
+<!-- ========================= -->
+
+<h2 style="margin-top:50px;">Visitors Analytics</h2>
+
+<div class="table-container">
+
+<table id="visitorsTable">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>IP</th>
+
+<th>Country</th>
+
+<th>City</th>
+
+<th>Device</th>
+
+<th>OS</th>
+
+<th>Browser</th>
+
+<th>Language</th>
+
+<th>Screen</th>
+
+<th>Page</th>
+
+<th>Stay Duration</th>
+
+<th>Entry Time</th>
+
+<th>Exit Time</th>
+
+</tr>
+
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+</div>
+
 <script src="admin.js"></script>
+
 </body>
+
 </html>
+
