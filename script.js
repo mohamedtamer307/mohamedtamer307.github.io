@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
 // =============================
@@ -8,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const supabaseUrl = "https://dpdhqeokdjispkkidzdl.supabase.co";
 
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZGhxZW9rZGppc3Bra2lkemRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDI0OTYsImV4cCI6MjA4ODU3ODQ5Nn0.fLG_QfOz3OScdm_9ZW6qDVT7MnvgkJbxn4Ff0sUekA0";
+
 const supabase = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
@@ -23,23 +23,31 @@ const imageModal = document.getElementById("imageModal");
 const closeBtn = document.getElementById("closeBtn");
 
 if (profileImage && imageModal) {
+
   profileImage.onclick = () => {
     imageModal.style.display = "flex";
   };
+
 }
 
 if (closeBtn && imageModal) {
+
   closeBtn.onclick = () => {
     imageModal.style.display = "none";
   };
+
 }
 
 if (imageModal) {
+
   imageModal.onclick = (e) => {
+
     if (e.target === imageModal) {
       imageModal.style.display = "none";
     }
+
   };
+
 }
 
 
@@ -56,20 +64,28 @@ if (toggleBtn) {
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
+
       toggleBtn.innerHTML = "☀️";
       localStorage.setItem("theme", "dark");
+
     } else {
+
       toggleBtn.innerHTML = "🌙";
       localStorage.setItem("theme", "light");
+
     }
 
   };
 
   if (localStorage.getItem("theme") === "dark") {
+
     document.body.classList.add("dark");
     toggleBtn.innerHTML = "☀️";
+
   } else {
+
     toggleBtn.innerHTML = "🌙";
+
   }
 
 }
@@ -87,22 +103,44 @@ function setLanguage(lang) {
 
   elements.forEach(el => {
 
+    const isTicker =
+      el.id === "tickerMessages" ||
+      el.id === "tickerMessagesClone";
+
+    if(isTicker) return;
+
     if (lang === "ar") {
-      el.innerText = el.getAttribute("data-ar");
+
+      el.textContent = el.getAttribute("data-ar");
+
     } else {
-      el.innerText = el.getAttribute("data-en");
+
+      el.textContent = el.getAttribute("data-en");
+
     }
 
   });
 
   if (lang === "ar") {
+
     document.documentElement.dir = "rtl";
     document.documentElement.lang = "ar";
-    if (langBtn) langBtn.classList.add("ar");
+
+    document.body.classList.add("rtl-mode");
+
+    if (langBtn)
+      langBtn.classList.add("ar");
+
   } else {
+
     document.documentElement.dir = "ltr";
     document.documentElement.lang = "en";
-    if (langBtn) langBtn.classList.remove("ar");
+
+    document.body.classList.remove("rtl-mode");
+
+    if (langBtn)
+      langBtn.classList.remove("ar");
+
   }
 
   localStorage.setItem("lang", lang);
@@ -113,19 +151,25 @@ if (langBtn) {
 
   langBtn.onclick = () => {
 
-    const currentLang = localStorage.getItem("lang") || "en";
+    const currentLang =
+      localStorage.getItem("lang") || "en";
 
     if (currentLang === "en") {
+
       setLanguage("ar");
+
     } else {
+
       setLanguage("en");
+
     }
 
   };
 
 }
 
-const savedLang = localStorage.getItem("lang") || "en";
+const savedLang =
+localStorage.getItem("lang") || "en";
 
 setLanguage(savedLang);
 
@@ -148,7 +192,8 @@ if(sending) return;
 
 sending = true;
 
-const submitBtn = form.querySelector("button");
+const submitBtn =
+form.querySelector("button");
 
 submitBtn.disabled = true;
 
@@ -294,7 +339,6 @@ const { data, error } = await supabase
 if(error){
 
 console.log(error);
-
 return;
 
 }
@@ -348,7 +392,6 @@ head: true
 if(error){
 
 console.log(error);
-
 return;
 
 }
@@ -397,11 +440,17 @@ return;
 const ticker =
 document.getElementById("tickerMessages");
 
-if(!ticker) return;
+const tickerClone =
+document.getElementById("tickerMessagesClone");
+
+if(!ticker || !tickerClone) return;
 
 if(data.length === 0){
 
 ticker.innerHTML =
+"<span>No messages yet</span>";
+
+tickerClone.innerHTML =
 "<span>No messages yet</span>";
 
 return;
@@ -413,9 +462,12 @@ const messages = data.map(msg => `
 <b>${msg.name}:</b>
 ${msg.message}
 </span>
-`).join(" ");
+`).join("");
 
-ticker.innerHTML = messages + messages;
+ticker.innerHTML = messages;
+
+/* نسخة ثانية للحركة السلسة */
+
 
 }catch(err){
 
@@ -432,15 +484,16 @@ loadTickerMessages();
 // CV OPTIONS
 // =============================
 
-function toggleCVOptions() {
+window.toggleCVOptions = function () {
 
-const box = document.getElementById("cvOptions");
+const box =
+document.getElementById("cvOptions");
 
 box.style.display =
 (box.style.display === "none")
 ? "block"
 : "none";
 
-}
+};
 
 });
