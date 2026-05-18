@@ -554,3 +554,141 @@ body.dark .visitor-counter{
 }
 
 }
+
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+
+@media (max-width: 768px){
+
+    /* layout */
+    .container{
+        grid-template-columns:1fr;
+        width:95%;
+        gap:20px;
+        margin-top:30px;
+    }
+
+    .left,
+    .right{
+        width:100%;
+    }
+
+    /* cards */
+    .card{
+        padding:20px;
+        border-radius:14px;
+        overflow:hidden;
+    }
+
+    /* titles */
+    .card h2{
+        font-size:32px;
+        line-height:1.3;
+        word-break:break-word;
+    }
+
+    /* long text */
+    .card p,
+    .card li,
+    .contact-item,
+    .contact-item a{
+        overflow-wrap:break-word;
+        word-break:break-word;
+        line-height:1.7;
+        font-size:15px;
+    }
+
+    /* lists */
+    .card ul{
+        padding-left:18px;
+    }
+
+    .card ul li{
+        padding-left:10px;
+        margin-bottom:14px;
+    }
+
+    /* profile image */
+    .image-wrapper{
+        width:150px;
+        height:150px;
+    }
+
+    /* hero text */
+    .hero h1{
+        font-size:28px;
+        line-height:1.4;
+    }
+
+    /* buttons */
+    .download-btn{
+        width:100%;
+        max-width:280px;
+        margin:10px auto 0;
+        display:block;
+    }
+
+    /* visitor counter */
+    .visitor-counter{
+        width:100%;
+        font-size:14px;
+        padding:12px;
+    }
+
+    /* language switch */
+    .lang-switch{
+        top:15px;
+        right:70px;
+        transform:scale(.9);
+    }
+
+    .theme-toggle{
+        top:15px;
+        right:15px;
+        transform:scale(.9);
+    }
+
+    /* ticker */
+    .news-ticker{
+        margin-top:20px;
+    }
+
+    /* linkedin/email */
+    a{
+        display:inline-block;
+        max-width:100%;
+    }
+
+}
+
+/* EXTRA SMALL DEVICES */
+
+@media (max-width:480px){
+
+    .hero{
+        padding:30px 10px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+    .card h2{
+        font-size:24px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .contact-item{
+        align-items:flex-start;
+    }
+
+    .contact-item .icon{
+        margin-top:3px;
+        flex-shrink:0;
+    }
+
+}
